@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=0" />
+    <title>Hazloc CST</title>
+    <script src="https://kit.fontawesome.com/44e8377104.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="icon" type="image/x-icon" href="./img/favicon-icon.png">
+</head>
+
+<body onload="removeLoadScreen()">
+
+    <!----Main Dashboard Area--->
+    <main>
+        <!---Loading Screen Starts Here -->
+        <div id="loading" class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!---Loading Screen Ends Here -->
+        <section id="mainApp" class="glass-container">
+            <div class="container">
+                <!---student's name, surname, ID nr, check test scores, complete test-->
+                <section class="homepage" id="homepage">
+                    <div class="student-home">
+                        <i class="fa fa-user" id="user-icon" aria-hidden="true"></i>
+                        <h1 id="stuID">PTACOD000340819</h1>
+                        <p id="marks">Mark: <b>TBD</b> <span></span> Attempts: 0</p>
+                        <button onclick="testStart()" id="testbegin">Begin Test</button>
+                        <button onclick="localStorage.clear(); window.location='../';">Close</button>
+                    </div>
+                </section>
+                <!---TEST AREA-->
+                <section class="tests" id="tests">
+                    <div class="test-container">
+                        <p id="test-questions">Test ID: 2022MJW001</p>
+                        <div class="test-blocks">
+                            <h3>Test instructions
+                                <i id="showInst" onclick="toggleInstructions()" class="fa fa-eye" aria-hidden="true"></i>
+
+                            </h3>
+                            <p>
+                                <ul id="inst">
+                                    <li id='ul-test-total'>This test has a total of 10 marks.</li>
+                                    <li id='ul-test-attempts'>You have 2 attempts.</li>
+                                    <li>Answers are saved automatically.</li>
+                                    <li>When time runs out all questions will disappear. Click submit to score your test.</li>
+                                    <li>NB: This test should be taken in one sitting.</li>
+                                    <li>NB: Do not clear web cache during the test.</li>
+                                </ul><br>
+                                <button id="generateTest">Start</button>
+                            </p>
+                        </div>
+                        <div id="par-question">
+                            <div class="test-q">
+                                <!---TIMER-->
+                                <p id="time_left"></p>
+
+                            </div>
+
+                        </div>
+                        <div class="test-q">
+                            <button id="submitTest">Submit Test</button>
+                        </div>
+                    </div>
+
+                </section>
+                <!---RELAY MESSAGE FROM SERVER-->
+                <div id="popup1" class="overlay">
+                    <div class="popup">
+                        <a class="close" id="redirect" href="#test">&times;</a>
+                        <h2 id="title">Here i am</h2>
+                        <div class="content">
+                            <p id="msg">Thank to pop me out of that button, but now i'm done so you can close this window.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+    </main>
+</body>
+
+</html>

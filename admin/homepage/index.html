@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=0" />
+    <title>EW SETA</title>
+    <!---FONT LINKS-->
+    <script src="https://kit.fontawesome.com/44e8377104.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!----CUSTOM FILES-->
+    <script src="./js/index.js"></script>
+    <script src="./js/classes/test.js"></script>
+    <script src="./js/classes/questions.js"></script>
+    <script src="./js/classes/lecturer.js"></script>
+    <link rel="stylesheet" href="./style/style.css" />
+</head>
+
+<body onload="removeLoadScreen()">
+
+    <!----Main Dashboard Area--->
+    <main>
+        <!---Loading Screen Starts Here -->
+        <div id="loading" class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!---Loading Screen Ends Here -->
+        <section id="mainApp" class="glass-container">
+
+            <nav>
+
+                <a href="#home" id="gotoHome"><i class="fa fa-home"></i></a>
+                <a href="#students"><i class="fa-solid fa-users"></i></a>
+                <a href="#tests"><i class="fa-solid fa-file-pen"></i></a>
+                <a href="#" id="logout"><i class="fa-solid fa-power-off"></i></a>
+
+            </nav>
+
+            <div class='container'>
+                <!---Home Tab Starts Here-->
+                <section id='home'>
+                    <div class="teacher-card">
+                        <img src="img/vacant_placeholder.png" id="teacherImage" />
+                        <p id="teacherName">Mechack Mulenda</p>
+
+                    </div>
+
+                    <table id="testTable" class="list-of-tests">
+                        <thead>
+                            <tr>
+                                <th>Test ID</th>
+                                <th>Duration (in minutes)</th>
+                                <th>Total Marks</th>
+                                <th>Date Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <a href="#tests"><button id="create">add</button></a>
+                </section>
+                <!---Home Tab Ends Here-->
+                <!---Student Tab For All Student Related Matters Starts Here -->
+                <section id='students'>
+                    <div class="grades">
+                        <form id="getStudent" class="test-choice" action="" method="post">
+                            <!---Search bar for the tests -->
+                            <input type="text" name="search_text" id="search_text" placeholder="Select Exam" required/>
+                            <input type="submit" value="" name="search_button" id="search_button"></a>
+                        </form>
+
+
+                    </div>
+
+                    <div class="student-container" id="student-container">
+                        <p id="list-students">Students</p>
+                        <div class="dummy-row"></div>
+                        <div class="dummy-row"></div>
+                        <div class="dummy-row"></div>
+
+                    </div>
+                </section>
+                <!---Student Tab For All Student Related Matters Ends Here -->
+                <!---Creating a Test Section Starts Here-->
+                <section id='tests'>
+                    <div class="test-container">
+                        <p id="test-questions">New Question</p>
+
+                        <div class="test-q">
+                            <form id="addQues" onsubmit="appendQuestion(); return false;">
+                                <input type="text" id="test_quest" name="question" placeholder="Enter the question here" required><br>
+                                <input accept="image/*" id="picture-files" type="file" name="filename"><br>
+                                <div class="multiple-options" id="mcq_opts">
+                                    <input type="text" id="opt0" name="opt0" placeholder="Enter option" required><br>
+                                </div><br>
+                                <button onclick="addOptions()">add options</button><br>
+
+                                <input type="text" name="answer" id="correct_ans" placeholder="Enter correct answer as text" required><br>
+                                <input type="number" id="mark_alloc" min="1" name="mark" placeholder="Mark allocation" required><br>
+                                <input id="saveQuestion" type="submit" />
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="test-container">
+                        <p id="test-questions">New Test</p>
+                        <div class="test-blocks">
+                            <h3>Instructions
+                                <i id="showInst" onclick="toggleInstructions()" class="fa fa-eye" aria-hidden="true"></i>
+                            </h3>
+
+                            <p>
+                                <ul id="inst">
+                                    <li>Enter your question on the left and click on submit.</li>
+                                    <li>The preview of the question will be displayed below and the form on the left will be cleared to allow you to enter more questions.</li>
+                                    <li>Once all your questions have been inserted and previewed. Click on SAVE TEST right at the bottom of this tab.</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div id="par-question">
+
+                        </div>
+                        <div class="test-blocks">
+                            <a href="#popup1"><button>save test</button></a>
+                        </div>
+                    </div>
+
+                </section>
+                <!---Creating a Test Section Ends Here-->
+                <!---Pop Up for save test-->
+
+                <div id="popup1" class="overlay">
+                    <div class="popup">
+                        <h2 id="popHeader">Save Test</h2>
+                        <a id="popClose" class="close" href="#tests">&times;</a>
+                        <p id="save_response">mjfodbs fdflksdlgk dfnndksfsl dkdkfndkkdgkfnk</p>
+                        <div id="popBody" class="pop-save">
+
+                            <form id="save_Test" action="#">
+                                <input type="number" placeholder="Attempts per student" id="attempts" required/>
+                                <input type="number" placeholder="Test duration (in minutes)" id="dur" required/>
+                                <input type="number" placeholder="Total available marks" id="marks" required/>
+                                <input type="submit" value="Save" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+    </main>
+
+</body>
+
+</html>

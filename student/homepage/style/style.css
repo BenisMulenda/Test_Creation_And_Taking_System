@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+:root {
+    --primary: rgb(227, 241, 241);
+    --secondary: rgb(41, 44, 44);
+    --tertiary: white;
+}
+
+
+/*Scrollbar starts here*/
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: grey;
+    border-radius: 25px;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 25px;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgb(204, 204, 204);
+}
+
+
+/*Scrollbar ends here*/
+
+main {
+    height: 100vh;
+    background-image: url("./img/background_1.webp");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.glass-container {
+    background: white;
+    height: 90vh;
+    width: 150vh;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    position: relative;
+    overflow: hidden;
+    display: none;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-container .container section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90vh;
+    width: 0;
+    opacity: 0;
+    transition: all ease-in .5s;
+    display: flex;
+}
+
+.glass-container .container section h1 {
+    font-size: 50px;
+}
+
+
+/* Styles applied on trigger */
+
+.glass-container .container section:target {
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.glass-container .container section:target h1 {
+    animation: 2s fadeIn forwards .5s;
+}
+
+
+/*Current/Create Tests Starts Here */
+
+.test-container {
+    background: rgba(0, 0, 0, 0);
+    height: 80vh;
+    width: 100vh;
+    padding-top: 30px;
+    align-items: center;
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.test-container #test-questions {
+    text-align: center;
+    font-weight: none;
+    color: white;
+    font-size: 25px;
+}
+
+.test-q {
+    background: rgba(0, 0, 0, 0);
+    height: auto;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 10px;
+    /*box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);*/
+    flex-shrink: 0;
+    display: flex;
+    padding: 5vh 5vh 5vh 5vh;
+}
+
+.questionImages {
+    height: 50vh;
+    width: 50vh;
+    object-fit: cover;
+}
+
+.test-blocks {
+    background: var(--tertiary);
+    height: auto;
+    width: 80vh;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    padding: 5vh 5vh 5vh 5vh;
+    text-align: left;
+}
+
+.test-q input {
+    width: 35vh;
+    padding: 15px 0 15px 20px;
+    font-size: 15px;
+    border: 0 none;
+    border-radius: 50px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    margin-top: 10px;
+    outline: none;
+    background: #ffffff;
+    color: black;
+    float: center;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.15s;
+}
+
+.test-q button {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    background: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    width: 24vh;
+    height: 5vh;
+    color: white;
+}
+
+#showInst {
+    cursor: pointer;
+}
+
+.glass-container .container .tests {
+    backdrop-filter: blur(10px);
+    padding-top: 40px;
+    padding-left: 100px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.glass-container .container .homepage {
+    backdrop-filter: blur(10px);
+    padding-top: 40px;
+    padding-left: 40px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.student-home h1 {
+    opacity: 1;
+    color: black;
+}
+
+.student-home {
+    background: rgba(0, 0, 0, 0);
+    height: 80vh;
+    width: 100vh;
+    padding-top: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+#user-icon {
+    font-size: 100px;
+    color: white;
+    background: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+button {
+    background: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    width: 24vh;
+    height: 5vh;
+    color: white;
+    cursor: pointer;
+}
+
+
+/*List of Tests Start Here*/
+
+.list-test-container {
+    background: rgba(0, 0, 0, 0);
+    height: 80vh;
+    width: 100vh;
+    padding-top: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.list-of-tests {
+    margin-left: 100px;
+    font-size: 0.9em;
+    width: auto;
+    border-radius: 25px 25px 0 0;
+    overflow-x: hidden;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    height: 60vh;
+    display: initial;
+}
+
+.list-of-tests thead tr {
+    background: linear-gradient(-20deg, rgb(0, 132, 255) 0%, #6944ff 100%);
+    color: #ffffff;
+    text-align: left;
+}
+
+.list-of-tests th,
+.list-of-tests td {
+    padding: 12px 12px;
+}
+
+.list-of-tests tbody tr {
+    border-bottom: 1px solid rgb(128, 125, 125);
+    background-color: #f3f3f3;
+}
+
+.list-of-tests td:nth-of-type(2) {
+    width: 30vh;
+}
+
+.list-of-tests td:nth-of-type(4) {
+    width: 8.5vh;
+}
+
+.list-of-tests td:nth-of-type(5) {
+    width: 8.5vh;
+}
+
+.list-of-tests tbody tr:last-of-type {
+    border-bottom: 2px solid gb(0, 132, 255);
+}
+
+
+/*List of Tests End Here*/
+
+
+/*TIMER*/
+
+.test-q p {
+    margin: 20px;
+    font-size: 2em;
+    position: -webkit-sticky;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+
+
+/*POP UP */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+}

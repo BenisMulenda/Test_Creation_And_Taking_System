@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=0" />
+    <title>Hazloc CST</title>
+    <script src="https://kit.fontawesome.com/44e8377104.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="icon" type="image/x-icon" href="./img/favicon-icon.png">
+</head>
+
+<body onload="removeLoadScreen()">
+
+    <!----Main Dashboard Area--->
+    <main>
+        <!---Loading Screen Starts Here -->
+        <div id="loading" class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!---Loading Screen Ends Here -->
+        <section id="mainApp" class="glass-container">
+            <!--Main Student Access Test Area-->
+            <div class="main-container">
+
+                <section id="test">
+                    <div class="container">
+                        <img src="./img/logo.jpeg" alt="user" />
+
+                        <form id="loginForm" class="sl-form" action="#">
+                            <input type="text" id="testID" name="testID" placeholder="Enter Test ID" required/><br>
+                            <input type="text" id="pass" name="pass" placeholder="ID/Passport" required/><br>
+                            <input type="text" id="name" name="name" placeholder="Name" required/><br>
+                            <input type="text" id="surname" name="surname" placeholder="Surname" required/><br>
+                            <input type="submit" value="Begin" />
+                        </form>
+                        <br>
+
+                    </div>
+                </section>
+                <!---POP UP to relay messages from server-->
+                <div id="popup1" class="overlay">
+                    <div class="popup">
+                        <a class="close" href="#test">&times;</a>
+                        <h2 id="title">Here i am</h2>
+                        <div class="content">
+                            <p id="msg">Thank to pop me out of that button, but now i'm done so you can close this window.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

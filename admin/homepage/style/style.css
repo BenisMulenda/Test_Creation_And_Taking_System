@@ -1,0 +1,770 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+:root {
+    --primary: rgb(227, 241, 241);
+    --secondary: rgb(41, 44, 44);
+    --tertiary: white;
+}
+
+
+/*Scrollbar starts here*/
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: var(--tertiary);
+    border-radius: 25px;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgb(204, 204, 204);
+}
+
+
+/*Scrollbar ends here*/
+
+main {
+    min-height: 100vh;
+    background-image: url("./img/background.webp");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.glass-container {
+    background: rgba(0, 0, 0, 0.2);
+    min-height: 90vh;
+    min-width: 190vh;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    position: relative;
+    overflow: hidden;
+    display: none;
+    border-radius: 25px;
+}
+
+.glass-container nav {
+    left: 0;
+    height: 90vh;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background: var(--tertiary);
+    box-shadow: 0px 3px 10px 8px rgba(0, 0, 0, 0.2);
+    z-index: 50;
+    padding-top: 50px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    border-radius: 25px 0px 0px 25px;
+}
+
+.glass-container nav img {
+    transform: scale(0.8);
+    height: 10vh;
+    width: 10vh;
+}
+
+.glass-container nav a {
+    font-size: 20px;
+    color: rgb(187, 187, 187);
+    text-decoration: none;
+    padding: 20px;
+    text-align: center;
+    transition: all ease-in .5s;
+}
+
+.glass-container nav a:hover {
+    color: black;
+}
+
+.glass-container .container section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90vh;
+    width: 0;
+    opacity: 0;
+    transition: all ease-in .5s;
+    display: flex;
+}
+
+.glass-container .container section h1 {
+    font-size: 50px;
+    opacity: 0;
+}
+
+
+/* Styles applied on trigger */
+
+.glass-container .container section:target {
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.glass-container .container section:target h1 {
+    opacity: 0;
+    animation: 2s fadeIn forwards .5s;
+}
+
+.glass-container .container #home {
+    backdrop-filter: blur(10px);
+    padding-top: 100px;
+    padding-left: 160px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.glass-container .container #students {
+    backdrop-filter: blur(10px);
+    padding-top: 60px;
+    padding-left: 100px;
+}
+
+.glass-container .container #tests {
+    backdrop-filter: blur(10px);
+    padding-top: 40px;
+    padding-left: 100px;
+    align-items: left;
+    text-align: center;
+}
+
+.glass-container .container #settings {
+    background: yellow;
+}
+
+
+/* Student Page Stuff Begins Here */
+
+.student-card {
+    background-color: rgba(0, 0, 0, 0);
+    height: 30vh;
+    width: auto;
+    padding-top: 30px;
+}
+
+.student-card button {
+    background: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    width: 24vh;
+    height: 5vh;
+    color: white;
+}
+
+.student {
+    padding-top: 20px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    width: 30vh;
+    height: 35vh;
+    margin-top: 10px;
+    margin-right: 10px;
+    transition: all ease-in .2s;
+}
+
+.student:hover {
+    transform: scale(1.03);
+}
+
+.grades {
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    background: var(--tertiary);
+    border-radius: 25px;
+    height: 15vh;
+    width: 50vh;
+    padding-top: 30px;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.student-container #list-students {
+    position: absolute;
+    text-align: center;
+    font-weight: none;
+    color: grey;
+    font-size: 25px;
+}
+
+#studentIcon {
+    font-size: 80px;
+    color: white;
+    background: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+#studentName {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+#mark {
+    color: green;
+}
+
+#minutes {
+    color: #002350;
+}
+
+.student-container {
+    background-color: white;
+    height: 75vh;
+    width: 120vh;
+    margin-left: 25px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-x: hidden;
+    justify-content: center;
+    padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.dummy-row {
+    background: rgba(0, 0, 0, 0);
+    width: 30vh;
+    height: 10vh;
+    margin-right: 10px;
+}
+
+.student-info {
+    background: var(--secondary);
+    border-radius: 25px;
+    width: 50vh;
+    height: 30vh;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Student Page Stuff Ends Here */
+
+
+/*Current/Create Tests Starts Here */
+
+.test-container {
+    background: rgba(0, 0, 0, 0);
+    height: 80vh;
+    width: 80vh;
+    padding-top: 30px;
+    align-items: center;
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.test-container #test-questions {
+    text-align: center;
+    font-weight: none;
+    color: white;
+    font-size: 25px;
+}
+
+.test-q {
+    background: rgba(0, 0, 0, 0);
+    height: auto;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    display: flex;
+    padding: 5vh 5vh 5vh 5vh;
+    width: 45vh;
+}
+
+.questionImages {
+    height: 50vh;
+    width: 50vh;
+    object-fit: cover;
+}
+
+.test-blocks button {
+    background: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    width: 24vh;
+    height: 5vh;
+    color: white;
+}
+
+.test-blocks {
+    background: var(--tertiary);
+    height: auto;
+    width: 60vh;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    padding: 5vh 5vh 5vh 5vh;
+    text-align: left;
+}
+
+.test-q input {
+    width: 35vh;
+    padding: 15px 0 15px 20px;
+    font-size: 15px;
+    border: 0 none;
+    border-radius: 50px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    outline: none;
+    background: #ffffff;
+    color: black;
+    float: center;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.15s;
+}
+
+.test-q button {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    background: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    width: 24vh;
+    height: 5vh;
+    color: white;
+}
+
+#saveQuestion {
+    background: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+    color: white;
+    padding: 10px 10px 10px 10px;
+}
+
+#showInst {
+    cursor: pointer;
+}
+
+
+/*Current/Create Tests Ends Here */
+
+
+/*Search For Specific Test Summary Begins Here  */
+
+#search_text {
+    width: 35vh;
+    padding: 15px 0 15px 20px;
+    font-size: 15px;
+    border: 0 none;
+    border-radius: 50px 0px 0px 50px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    height: 5vh;
+    margin-right: 0;
+    outline: none;
+    background: #ffffff;
+    float: left;
+    color: black;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.15s;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: grey;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: grey;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: grey;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: grey;
+}
+
+#search_text:focus {
+    transform: scale(1.04)
+}
+
+#search_button {
+    border: 0 none;
+    height: 5vh;
+    border-radius: 0px 50px 50px 0px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    background: #553ce6 url(./img/search.png) center no-repeat;
+    background-size: 3vh 3vh;
+    width: 60px;
+    float: left;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+/*Search For Specific Test Summary Ends Here  */
+
+#results {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 45vh;
+    margin-top: 10;
+    margin-left: 2vh;
+    margin-right: 0px;
+    display: flex;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/*Graph For Specific Test Summary Starts Here  */
+
+
+/*Graph For Specific Test Summary Ends Here  */
+
+@keyframes fadeIn {
+    100% {
+        opacity: 1
+    }
+}
+
+
+/*Teacher's Card Starts Here*/
+
+#teacherImage {
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    height: 15vh;
+    width: 15vh;
+}
+
+#teacherName {
+    margin-top: 10px;
+    font-size: 25px;
+    color: white;
+}
+
+.teacher-card {
+    background-color: rgba(0, 0, 0, 0);
+    height: 30vh;
+    width: auto;
+    padding-top: 10px;
+    margin-top: -300px;
+    position: absolute;
+}
+
+.teacher-card button {
+    background: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    width: 24vh;
+    height: 5vh;
+    color: white;
+}
+
+
+/*Teacher's Card Ends Here*/
+
+
+/*List of Tests Start Here*/
+
+.list-of-tests {
+    font-size: 0.9em;
+    width: auto;
+    border-radius: 25px 25px 0 0;
+    overflow-x: hidden;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    height: 60vh;
+    display: initial;
+    margin-top: 43vh;
+}
+
+.list-of-tests thead tr {
+    background: linear-gradient(-20deg, rgb(0, 132, 255) 0%, #6944ff 100%);
+    color: #ffffff;
+    text-align: left;
+}
+
+.list-of-tests th,
+.list-of-tests td {
+    padding: 12px 12px;
+}
+
+.list-of-tests tbody tr {
+    border-bottom: 1px solid rgb(128, 125, 125);
+    background-color: #f3f3f3;
+}
+
+.list-of-tests tbody tr:last-of-type {
+    border-bottom: 2px solid gb(0, 132, 255);
+}
+
+
+/*List of Tests End Here*/
+
+
+/* Create Button Starts Here  */
+
+#create {
+    width: 150px;
+    height: 5vh;
+    border: 1px solid white;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 25px;
+    color: white;
+    margin-top: 120vh;
+    margin-left: -500px;
+}
+
+
+/* Create Button Ends Here*/
+
+
+/* Loading Page Stuff Begins Here */
+
+.loader {
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+    position: relative;
+    display: flex;
+    padding: 150px;
+    box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
+}
+
+.loader span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.loader span:nth-child(2) {
+    background: #f07e6e;
+}
+
+.loader span:nth-child(3) {
+    background: #84cdfa;
+}
+
+.loader span:nth-child(4) {
+    background: #5ad1cd;
+}
+
+.loader span:not(:last-child) {
+    animation: animate 1.5s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(30px);
+    }
+}
+
+.loader span:last-child {
+    animation: jump 1.5s ease-in-out infinite;
+}
+
+@keyframes jump {
+    0% {
+        transform: translate(0, 0);
+    }
+    10% {
+        transform: translate(10px, -10px);
+    }
+    20% {
+        transform: translate(20px, 10px);
+    }
+    30% {
+        transform: translate(30px, -50px);
+    }
+    70% {
+        transform: translate(-150px, -50px);
+    }
+    80% {
+        transform: translate(-140px, 10px);
+    }
+    90% {
+        transform: translate(-130px, -10px);
+    }
+    100% {
+        transform: translate(-120px, 0);
+    }
+}
+
+
+/* Loading Page Stuff Ends Here */
+
+
+/* Multiple Options Starts Here*/
+
+.multiple-options {
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    height: 10vh;
+}
+
+
+/* Multiple Options Ends Here*/
+
+
+/*Save Test pop Up*/
+
+
+/*POP UP */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+.popup p {
+    text-align: center;
+    background: green;
+    padding: 1px 1px 1px 1px;
+    width: 36vh;
+    color: white;
+    overflow: hidden;
+    display: none;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+}
+
+.pop-save {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.pop-save input {
+    width: 35vh;
+    padding: 15px 0 15px 20px;
+    font-size: 15px;
+    border: 0 none;
+    border-radius: 50px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    margin-top: 10px;
+    outline: none;
+    background: #ffffff;
+    color: black;
+    float: center;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.15s;
+}
+
+#addQues input {
+    margin-top: 10px;
+    justify-content: center;
+}
+
+#save_response {
+    width: 100%;
+    text-align: center;
+}

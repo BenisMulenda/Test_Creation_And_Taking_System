@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+:root {
+    --primary: rgb(227, 241, 241);
+    --secondary: rgb(41, 44, 44);
+    --tertiary: white;
+}
+
+
+/*Scrollbar starts here*/
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: var(--tertiary);
+    border-radius: 25px;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgb(204, 204, 204);
+}
+
+
+/*Scrollbar ends here*/
+
+main {
+    min-height: 100vh;
+    background-image: url("./img/background_1.webp");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* dasboard area */
+
+.glass-container {
+    background: rgba(0, 0, 0, 0);
+    min-height: 90vh;
+    min-width: 190vh;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    position: relative;
+    overflow: hidden;
+    display: none;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-container .main-container section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90vh;
+    width: 0;
+    opacity: 0;
+    transition: all ease-in .5s;
+    display: flex;
+}
+
+.glass-container .main-container section h1 {
+    font-size: 50px;
+    opacity: 0;
+}
+
+
+/* Styles applied on trigger */
+
+.glass-container .main-container section:target {
+    opacity: 1;
+    /*position: absolute;*/
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-container .main-container section:target h1 {
+    opacity: 0;
+    animation: 2s fadeIn forwards .5s;
+}
+
+.container {
+    background: white;
+    height: 80vh;
+    width: 100vh;
+    padding-top: 30px;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.container img {
+    height: 14vh;
+    width: 14vh;
+    left: 50vh;
+    top: 7vh;
+    position: absolute;
+}
+
+#user-icon {
+    font-size: 100px;
+    color: white;
+    background: rgb(28, 39, 58);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.container-signup p {
+    color: black;
+}
+
+.sl-form {
+    background: rgba(0, 0, 0, 0);
+    height: auto;
+    overflow: hidden;
+    margin-top: 10px;
+    flex-shrink: 0;
+    padding: 5vh 5vh 5vh 5vh;
+}
+
+.container a {
+    text-decoration: none;
+    color: blue;
+    text-decoration: underline;
+}
+
+.sl-form input {
+    width: 35vh;
+    padding: 15px 0 15px 20px;
+    font-size: 15px;
+    border: 0 none;
+    border-radius: 50px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    margin-top: 10px;
+    outline: none;
+    background: #ffffff;
+    color: black;
+    float: center;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.15s;
+}
+
+.sl-form input[type=submit] {
+    float: center;
+    padding: 15px 0 15px 0px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background: rgb(28, 39, 58);
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    width: 35vh;
+    color: white;
+}
+
+.glass-container .container #slform {
+    backdrop-filter: blur(10px);
+    padding-top: 40px;
+    padding-left: 100px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#sl-form-signup img {
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50%;
+}
+
+.glass-container .container #sl-form-signup {
+    backdrop-filter: blur(10px);
+    padding-top: 40px;
+    padding-left: 100px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.container-signup {
+    background: white;
+    height: 80vh;
+    width: 100vh;
+    padding-top: 30px;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.container-signup a {
+    text-decoration: none;
+    color: blue;
+    text-decoration: underline;
+}
+
+.container-signup p {
+    color: black;
+}
+
+.sl-form p {
+    text-align: center;
+    color: black;
+}
+
+
+/*POP UP */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+}
+
+.sl-form .error-message {
+    width: 35vh;
+    background: red;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    transition: all ease-in .5s;
+    display: none;
+}
+
+#showPass,
+#errLogin {
+    cursor: pointer;
+}

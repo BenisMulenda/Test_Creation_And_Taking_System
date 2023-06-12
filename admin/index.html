@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=0" />
+    <title>EW SETA</title>
+    <!--The following links specify the font being use as well as adds fa fa icons-->
+    <script src="https://kit.fontawesome.com/44e8377104.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <!--Adding JQUERY to the project-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--Custom files-->
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="icon" type="image/x-icon" href="./img/favicon-icon.png">
+</head>
+
+<body onload="removeLoadScreen()">
+
+    <!----Work Area--->
+    <main>
+
+        <!---Loading Screen Starts Here -->
+        <div id="loading" class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!---Visible app area-->
+        <section id="mainApp" class="glass-container">
+            <div class="main-container">
+                <!--Login form-->
+                <section id="sl-form">
+                    <div class="container">
+                        <img src="img/logo.jpeg" alt="user" />
+
+                        <form id="loginForm" class="sl-form" action="#">
+                            <p>Login into your account</p>
+                            <input type="text" id="email_address" name="email_address" placeholder="Email" required/><br>
+                            <input type="password" id="psw" name="password" placeholder="Password" required/><br>
+                            <p id="errLogin" class="error-message">No account associated with provided email.</p>
+                            <input type="submit" value="Login" />
+                        </form>
+                        <br>
+                        <p>Forgot Password? <a href="#">Click Here</a> | Sign Up <a href="#sl-form-signup">Here</a></p>
+                    </div>
+                </section>
+                <!---sign in form-->
+                <section id="sl-form-signup">
+                    <div class="container-signup">
+                        <i class="fa fa-user" id="user-icon" aria-hidden="true"></i>
+
+                        <form id="signupForm" class="sl-form" action="#">
+                            <p>Create an account</p>
+                            <input type="text" id="fname" name="fname" placeholder="Full Name" required/><br>
+                            <input type="text" id="lname" name="lname" placeholder="Last Name" required/><br>
+                            <input type="text" id="email" name="email" placeholder="Email" required/><br>
+                            <input type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="password" placeholder="Password" required/>
+                            <i id="showPass" aria-hidden="true" class="fa fa-eye-slash"></i><br>
+                            <input type="submit" value="Signup" />
+                        </form>
+
+                        <p>Already have an account? <a href="#sl-form">Login</a></p>
+                    </div>
+                </section>
+                <!--Popup used for display feedback from server-->
+                <div id="popup1" class="overlay">
+                    <div class="popup">
+                        <h2 id="popHeader">Welcome Benis</h2>
+                        <a id="popClose" class="close" href="#sl-form">&times;</a>
+                        <div id="popBody" class="content">
+                            <p id="popBody">This is a pop up</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
