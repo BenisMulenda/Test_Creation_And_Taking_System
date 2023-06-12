@@ -30,7 +30,7 @@ function comparePasswords($password, $row){
     }
 }
 //INPUT MANAGEMENT
-//$input = '{"email_address": "dflorrian@jbsr.com", "password": "dimitri"}';
+
 
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
